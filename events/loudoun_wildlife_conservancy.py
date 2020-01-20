@@ -66,12 +66,7 @@ def fees(event):
     if 'Fee:' in event:
         fee_dict = {}
         fee_list = re.findall(r"[-+]?\d*\.\d+|\d+", event)
-        fee_dict['Members'] = fee_list[0]
-        fee_dict['Non-members'] = fee_list[1]
-        if 'Free for members' in event:
-            fee_dict['Members'] = '0'
-            return fee_dict
-        return fee_dict
+        return str(fee_list[1])
     return str('0')
 
 
